@@ -1,0 +1,504 @@
+info:
+  description: API tests with pagination, filters, full CRUD
+  title: Medical App API
+  version: 1.0.0
+openapi: 3.0.0
+paths:
+  /api/appointments:
+    get:
+      parameters:
+      - example: '1'
+        in: query
+        name: page
+        required: false
+        schema:
+          type: string
+      - example: '10'
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Appointments
+    post:
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              appointmentDate: '2025-08-10T10:00:00Z'
+              doctor: DOCTOR_ID
+              notes: Consultation de routine
+              patient: PATIENT_ID
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Appointments
+  /api/appointments/{id}:
+    delete:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Appointments
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Appointments
+    patch:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              status: cancelled
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Appointments
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              notes: Nouvelle note
+              status: completed
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Appointments
+  /api/auth/login:
+    post:
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              email: user@example.com
+              password: password123
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Auth
+  /api/auth/register:
+    post:
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              email: user@example.com
+              firstName: John
+              lastName: Doe
+              password: password123
+              role: patient
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Auth
+  /api/doctors:
+    get:
+      parameters:
+      - example: '1'
+        in: query
+        name: page
+        required: false
+        schema:
+          type: string
+      - example: '10'
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Doctors
+    post:
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              consultationDuration: 30
+              isAvailable: true
+              licenseNumber: MED123456
+              specialty: Cardiologie
+              user: USER_ID
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Doctors
+  /api/doctors/{id}:
+    delete:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Doctors
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Doctors
+    patch:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              isAvailable: false
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Doctors
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              consultationDuration: 45
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Doctors
+  /api/patients:
+    get:
+      parameters:
+      - example: '1'
+        in: query
+        name: page
+        required: false
+        schema:
+          type: string
+      - example: '10'
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: string
+      - example: Homme
+        in: query
+        name: gender
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Patients
+    post:
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              address: 123 rue Exemple
+              allergies:
+              - pollen
+              bloodGroup: A+
+              dateOfBirth: '1990-01-01'
+              gender: Homme
+              medicalHistory:
+              - diabète
+              user: USER_ID
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Patients
+  /api/patients/68999af8e698ec0020203cbd:
+    get:
+      parameters: []
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Patients
+    put:
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              address: Nouvelle adresse
+              bloodGroup: B-
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Patients
+  /api/patients/{id}:
+    delete:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Patients
+    patch:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              address: Adresse patchée
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Patients
+  /api/prescriptions:
+    get:
+      parameters:
+      - example: '1'
+        in: query
+        name: page
+        required: false
+        schema:
+          type: string
+      - example: '10'
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Prescriptions
+    post:
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              appointment: APPOINTMENT_ID
+              doctor: DOCTOR_ID
+              instructions: Prendre après les repas
+              medications:
+              - dosage: 500mg
+                duration: 7 jours
+                frequency: 3x/jour
+                name: Paracétamol
+              patient: PATIENT_ID
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Prescriptions
+  /api/prescriptions/{id}:
+    delete:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Prescriptions
+    get:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Prescriptions
+    patch:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              instructions: Instruction patchée
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Prescriptions
+    put:
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              instructions: Nouvelle instruction
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Succès
+      summary: ''
+      tags:
+      - Prescriptions
+servers:
+- url: http://localhost:5000
+tags:
+- description: Endpoints relatifs à patients
+  name: Patients
+- description: Endpoints relatifs à doctors
+  name: Doctors
+- description: Endpoints relatifs à appointments
+  name: Appointments
+- description: Endpoints relatifs à prescriptions
+  name: Prescriptions
+- description: Endpoints relatifs à auth
+  name: Auth

@@ -41,7 +41,7 @@ app.use(errorHandler);
 
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
-const swaggerDocument = YAML.load('./swagger_medical_app.yaml');
+const swaggerDocument = YAML.load('./medical_api_swagger.yaml');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
