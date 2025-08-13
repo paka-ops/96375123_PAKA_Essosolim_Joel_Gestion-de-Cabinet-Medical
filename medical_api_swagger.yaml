@@ -490,7 +490,7 @@ paths:
       tags:
       - Prescriptions
 servers:
-- url: http://localhost:5000
+- url: https://gestion-de-cabinet-medical.onrender.com/
 tags:
 - description: Endpoints relatifs à patients
   name: Patients
