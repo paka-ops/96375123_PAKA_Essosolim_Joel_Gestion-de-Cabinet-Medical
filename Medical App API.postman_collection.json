@@ -877,7 +877,7 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "https://gestion-de-cabinet-medical.onrender.com/"
+			"value": "https://gestion-de-cabinet-medical.onrender.com"
 		},
 		{
 			"key": "jwt_token",
