@@ -61,7 +61,7 @@ curl -X POST http://localhost:5000/api/auth/register \
   | Élément                   | Lien / Statut                                                          |
 | ------------------------- | ---------------------------------------------------------------------- |
 | **Déploiement (Render)**  | <https://ton-app.onrender.com>                                         |
-| **Repo GitHub**           | <https://github.com/ton-compte/96375123-gestion-cabinet-medical>       |
+| **Repo GitHub**           |       |
 | **Documentation Swagger** | <https://ton-app.onrender.com/api-docs>                                |
 | **Collection Postman**    | <https://web.postman.co/workspace/UK-Projet-Final/collection/96375123> |
 | **Repo privé ?**          | Oui — collaborateur **<akoffi@kirusa.com>** invité                     |
